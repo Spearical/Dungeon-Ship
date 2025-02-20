@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public bool enableDebug = false;
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        this.score = 0;
-        this.lives = 3;
+        score = 0;
+        lives = 3;
 
         if (enableDebug) LoadPlayground();
         else LoadLevel(1);
@@ -28,17 +28,12 @@ public class GameManager : MonoBehaviour
 
     private void LoadLevel(int level)
     {
-        this.currentLevel = level;
+        currentLevel = level;
         SceneManager.LoadScene("Level_" + level);
     }
 
     private void LoadPlayground()
     {
         SceneManager.LoadScene("Playground");
-    }
-
-    public void Hit(Brick brick)
-    {
-        this.score += brick.points;
     }
 }
