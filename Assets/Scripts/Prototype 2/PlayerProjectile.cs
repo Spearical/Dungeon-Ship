@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ProjectileBehavior : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
-    [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float speed = 15.0f;
@@ -28,5 +27,18 @@ public class ProjectileBehavior : MonoBehaviour
     public void Fire()
     {
         Destroy(gameObject, aliveTimer);
+    }
+
+    public void SetProjectileSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public void SetProjectileSprite(Sprite sprite)
+    {
+        if (TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
+        {
+            spriteRenderer.sprite = sprite;
+        }
     }
 }

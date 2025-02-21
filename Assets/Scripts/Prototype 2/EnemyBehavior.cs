@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeflectedProjectileBehavior : MonoBehaviour
+public class EnemyBehavior : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
