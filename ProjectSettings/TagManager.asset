@@ -9,6 +9,8 @@ TagManager:
   - Player Projectile
   - Enemy Projectile
   - Player Shield
+  - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Boundaries
+  - Background
   - 
   - 
   - 

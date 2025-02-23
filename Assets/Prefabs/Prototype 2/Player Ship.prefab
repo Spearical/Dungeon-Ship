@@ -187,8 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8407993136658935883, guid: 8e52139a2b1af51459ef76bbf4aa0e73, type: 3}
-  projectileSprite: {fileID: 21300000, guid: 0740af1ae548ab94ea326a4a1e18b311, type: 3}
-  deflectedEnergyPrefab: {fileID: 0}
+  projectileSprite: {fileID: 21300000, guid: 9bf949c57ac9da04ca9cc549019fcde5, type: 3}
   deflectionShield: {fileID: 1432428642411286460}
   rigidBody: {fileID: 2415038587776161831}
   moveSpeed: 50

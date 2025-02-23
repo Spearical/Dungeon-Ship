@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a7332ab7eabf094c9a23a497c3fc734, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 616269a4b986f264bb669c462d90d925, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -193,7 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256028103b661f74a9c66569b505b2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgAmount: 45
+  playerDmgAmount: 20
+  enemyDmgAmount: 0
+  brickDmgAmount: 0
+  enableHitAll: 0
+  baseDmgAmount: 0
 --- !u!114 &-769460678749605364
 MonoBehaviour:
   m_ObjectHideFlags: 0

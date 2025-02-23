@@ -20,7 +20,7 @@ public class PlayerProjectile : MonoBehaviour
         rigidBody.AddForce(transform.up.normalized * speed);
     }
 
-    private void OnCollisionEnter2D()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         onContactDestroy.Invoke();
     }

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 7394355027384924533}
   - component: {fileID: 7099388220115726828}
   - component: {fileID: 4659614005585687153}
-  - component: {fileID: -3599210301962164641}
   m_Layer: 0
   m_Name: Deflected Energy
   m_TagString: Untagged
@@ -219,16 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256028103b661f74a9c66569b505b2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgAmount: 50
---- !u!114 &-3599210301962164641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712947917662387925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e857df3fdd0949a2c8f5c8d2c5070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerDmgAmount: 0
+  enemyDmgAmount: 10
+  brickDmgAmount: 100
+  enableHitAll: 0
+  baseDmgAmount: 50
