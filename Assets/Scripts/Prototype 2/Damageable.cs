@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Damageable : MonoBehaviour
+public class Damageable : MonoBehaviour, IDamageable
 {
     Health health;
 

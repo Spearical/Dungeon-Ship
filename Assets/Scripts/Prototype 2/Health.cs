@@ -15,4 +15,9 @@ public class Health : MonoBehaviour
             onHealthZero.Invoke();
         }
     }
+
+    public float GetHeatlth()
+    {
+        return health;
+    }
 }

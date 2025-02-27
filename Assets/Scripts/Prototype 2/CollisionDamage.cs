@@ -17,7 +17,7 @@ public class CollisionDamage : MonoBehaviour
         {
             if (playerDmgAmount > 0 && hitObject.CompareTag("Player"))
             {
-                TryDamagePlayer(hitObject, playerDmgAmount);
+                TryDamageObject(hitObject, playerDmgAmount);
             }
             else if (enemyDmgAmount > 0 && hitObject.CompareTag("Enemy"))
             {
@@ -36,17 +36,9 @@ public class CollisionDamage : MonoBehaviour
 
     void TryDamageObject(GameObject objectToDamage, float dmgAmount)
     { 
-        if(objectToDamage.TryGetComponent(out Damageable damageableObject))
+        if(objectToDamage.TryGetComponent<IDamageable>(out IDamageable damageableObject))
         {
             damageableObject.DealDamage(-dmgAmount);
-        }
-    }
-
-    void TryDamagePlayer(GameObject objectToDamage, float dmgAmount)
-    { 
-        if(objectToDamage.TryGetComponent(out PlayerDamageController damageablePlayer))
-        {
-            damageablePlayer.DealDamageToPlayer(-dmgAmount);
         }
     }
 }

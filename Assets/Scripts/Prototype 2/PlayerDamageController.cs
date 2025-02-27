@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerHealth))]
-public class PlayerDamageController : MonoBehaviour
+public class PlayerDamageController : MonoBehaviour, IDamageable
 {
     public bool isInvincible = false;
     public UnityEvent onHealthZero;
@@ -23,7 +23,7 @@ public class PlayerDamageController : MonoBehaviour
         health = GetComponent<PlayerHealth>();
     }
 
-    public void DealDamageToPlayer(float damageAmount)
+    public void DealDamage(float damageAmount)
     {
         if (!isInvincible && !playerController.IsShieldActive())
         {
