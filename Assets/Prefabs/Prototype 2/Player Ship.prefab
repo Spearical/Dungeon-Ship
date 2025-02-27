@@ -148,8 +148,10 @@ GameObject:
   - component: {fileID: 1206317231442218573}
   - component: {fileID: 2415038587776161831}
   - component: {fileID: 5238232991801453392}
-  - component: {fileID: 8159955957848696170}
-  - component: {fileID: 6358581539134249938}
+  - component: {fileID: 6708858124045854849}
+  - component: {fileID: 8938285217205126348}
+  - component: {fileID: 4817230492976072960}
+  - component: {fileID: 6049286422106424429}
   - component: {fileID: -7251304909663740893}
   m_Layer: 0
   m_Name: Player Ship
@@ -393,7 +395,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.05}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8159955957848696170
+--- !u!114 &6708858124045854849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,10 +404,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6704311188713161493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b3b13b4094b3e499d2839d21582b31, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fcfa03b7afe59f4ea4e3cdf396e9a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &8938285217205126348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704311188713161493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5039c35d05b69fc46af907b6533a51c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
   onHealthZero:
     m_PersistentCalls:
       m_Calls:
@@ -421,7 +436,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6358581539134249938
+  invincibilityDuration: 3
+  flashColor: {r: 1, g: 1, b: 1, a: 0.15686275}
+  numberOfFlashes: 10
+--- !u!114 &4817230492976072960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,7 +448,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6704311188713161493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e79f88572e6e0d4d8562974d3aa30ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fa92a04ef3a771c4b8b22a81c1fb9453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6049286422106424429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704311188713161493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7f083dac2c7a478e8bed93c17f3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-7251304909663740893

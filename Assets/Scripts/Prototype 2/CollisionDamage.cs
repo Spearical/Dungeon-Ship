@@ -17,7 +17,7 @@ public class CollisionDamage : MonoBehaviour
         {
             if (playerDmgAmount > 0 && hitObject.CompareTag("Player"))
             {
-                TryDamageObject(hitObject, playerDmgAmount);
+                TryDamagePlayer(hitObject, playerDmgAmount);
             }
             else if (enemyDmgAmount > 0 && hitObject.CompareTag("Enemy"))
             {
@@ -40,9 +40,13 @@ public class CollisionDamage : MonoBehaviour
         {
             damageableObject.DealDamage(-dmgAmount);
         }
-        else
+    }
+
+    void TryDamagePlayer(GameObject objectToDamage, float dmgAmount)
+    { 
+        if(objectToDamage.TryGetComponent(out PlayerDamageController damageablePlayer))
         {
-            Debug.Log("That object cannot be damaged.");
+            damageablePlayer.DealDamageToPlayer(-dmgAmount);
         }
     }
 }

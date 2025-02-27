@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool IsShieldActive()
+    {
+        return shieldActive;
+    }
+
     IEnumerator ActivateShield()
     {
         deflectionShield.SetActive(true);
