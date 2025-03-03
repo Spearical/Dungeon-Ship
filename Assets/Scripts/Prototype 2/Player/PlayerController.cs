@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public Sprite projectileSprite;
     public GameObject deflectionShield;
+    public GameObject shieldReadyRing;
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ActivateShield()
     {
+        shieldReadyRing.SetActive(false);
         deflectionShield.SetActive(true);
         yield return new WaitForSeconds(shieldActiveTime);
         shieldActive = false;
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(shieldCooldownTime);
         shieldOnCooldown = false;
+        shieldReadyRing.SetActive(true);
     }
 
     IEnumerator MissileCooldown()

@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 7313348747500714291}
   - component: {fileID: 6374792564793039030}
   - component: {fileID: 5093484174847867469}
+  - component: {fileID: -4466138388947994923}
   - component: {fileID: -4598681340988320590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red Enemy Normal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -165,8 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e175a0776b5dda14fb715744629f7ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 2440409857378004900}
-  moveSpeed: 50
+  movementStartDelay: 3
 --- !u!114 &6374792564793039030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e79f88572e6e0d4d8562974d3aa30ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4466138388947994923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172229857740220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c7a67460639394693fed6938f01fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 0}
+  moveSpeed: 30
 --- !u!114 &-4598681340988320590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +284,10 @@ PrefabInstance:
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Name
       value: Projectile Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

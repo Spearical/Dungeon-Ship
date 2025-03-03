@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Bounces))]
 public class DeflectedProjectile : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
@@ -7,9 +8,11 @@ public class DeflectedProjectile : MonoBehaviour
     private float speed = 500.0f;
     [SerializeField]
     private float aliveTimer = 30.0f;
+    private Bounces bounces;
 
     private void Awake()
     {
+        bounces = GetComponent<Bounces>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -17,6 +20,20 @@ public class DeflectedProjectile : MonoBehaviour
     {
         Destroy(gameObject, aliveTimer);
         SetRandomTrajectory();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject collisionObject = collision.gameObject;
+        if (collisionObject.TryGetComponent<BrickDamageController>
+            (out BrickDamageController brickDamageController))
+        {
+            // Only want to reduce bounces if the brick is damageable!
+            if (!brickDamageController.isUnbreakable)
+            {
+                bounces.DecreaseBounces();
+            }
+        }
     }
 
     private void SetRandomTrajectory()

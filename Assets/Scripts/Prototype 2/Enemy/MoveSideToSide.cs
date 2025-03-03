@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class MoveSideToSide : MonoBehaviour, IMovement
 {
     [SerializeField]
     private Rigidbody2D rigidBody;
@@ -20,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour
         direction = (int)Mathf.Sign(Random.Range(-1, 2)); // -1 for negative, 1 for positive
     }
 
-    void FixedUpdate()
+    public void Move()
     {
         rigidBody.AddForce(new Vector2(direction, 0f) * moveSpeed);
         DetectIncomingWall();
@@ -32,13 +33,13 @@ public class EnemyBehavior : MonoBehaviour
         RaycastHit2D rightRay = Physics2D.Raycast(transform.position, -Vector2.left, DETECTION_RANGE_SCALAR);
 
         if (leftRay.collider != null 
-        && leftRay.collider.CompareTag("Wall"))
+        && (leftRay.collider.CompareTag("Wall") || leftRay.collider.CompareTag("Enemy")))
         {
             direction = 1;
         } 
         
         if (rightRay.collider != null 
-        && rightRay.collider.CompareTag("Wall"))
+        && (rightRay.collider.CompareTag("Wall") || rightRay.collider.CompareTag("Enemy")))
         {
             direction = -1;
         } 

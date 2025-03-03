@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7843441544162766850}
   - component: {fileID: 1300509452414193430}
   - component: {fileID: 1986931649243236187}
-  - component: {fileID: 7394355027384924533}
+  - component: {fileID: 2352732013278581919}
   - component: {fileID: 7099388220115726828}
   - component: {fileID: 4659614005585687153}
   m_Layer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   aliveTimer: 30
---- !u!114 &7394355027384924533
+--- !u!114 &2352732013278581919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,11 +175,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1712947917662387925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b3b13b4094b3e499d2839d21582b31, type: 3}
+  m_Script: {fileID: 11500000, guid: 56614526e0e7bcb4a924bf4f522e3984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  onHealthZero:
+  bounces: 5
+  onBouncesZero:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7099388220115726828}
