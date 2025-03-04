@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 510462809689479776}
   - component: {fileID: 7313348747500714291}
   - component: {fileID: 6374792564793039030}
-  - component: {fileID: 5093484174847867469}
+  - component: {fileID: 293757732693603357}
   - component: {fileID: -4466138388947994923}
-  - component: {fileID: -4598681340988320590}
+  - component: {fileID: 8657092408890194706}
+  - component: {fileID: 2268259452639393637}
   m_Layer: 8
   m_Name: Red Enemy Normal
   m_TagString: Enemy
@@ -182,10 +183,25 @@ MonoBehaviour:
   health: 50
   onHealthZero:
     m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &293757732693603357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172229857740220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6cb70938d9e274bad76815ff366455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHealthZero:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -4598681340988320590}
-        m_TargetAssemblyTypeName: DestructibleObject, Assembly-CSharp
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 8657092408890194706}
+        m_TargetAssemblyTypeName: DespawnableObject, Assembly-CSharp
+        m_MethodName: DespawnObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -195,18 +211,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5093484174847867469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8172229857740220966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e79f88572e6e0d4d8562974d3aa30ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2268259452639393637}
+        m_TargetAssemblyTypeName: SpriteFlash, Assembly-CSharp
+        m_MethodName: FlashSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-4466138388947994923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 2440409857378004900}
   moveSpeed: 30
---- !u!114 &-4598681340988320590
+--- !u!114 &8657092408890194706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,9 +249,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8172229857740220966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3d9aa276a466c468a95957ed2ae9f9, type: 3}
+  m_Script: {fileID: 11500000, guid: d3507ece571c0a44880b1c869b34ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2268259452639393637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172229857740220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7f083dac2c7a478e8bed93c17f3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashDuration: 1
+  flashColor: {r: 1, g: 1, b: 1, a: 0.16862746}
+  numberOfFlashes: 5
 --- !u!1001 &6730966165429071525
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,4 +36,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Playground");
     }
+
+    public void UpdateScore(int addToScore)
+    {
+        score += addToScore;
+    }
 }

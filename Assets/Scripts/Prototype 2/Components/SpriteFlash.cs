@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteFlash : MonoBehaviour
 {
+    public float flashDuration;
+    public Color flashColor;
+    public int numberOfFlashes;
     private SpriteRenderer spriteRenderer;
 
     void Awake()
@@ -32,5 +35,10 @@ public class SpriteFlash : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void FlashSprite()
+    {
+        StartCoroutine(FlashCoroutine(flashDuration, flashColor, numberOfFlashes));
     }
 }

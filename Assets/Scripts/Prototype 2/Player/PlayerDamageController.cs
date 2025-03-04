@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class PlayerDamageController : MonoBehaviour, IDamageable
 {
     public bool isInvincible = false;
-    public UnityEvent onHealthZero;
     private PlayerHealth health;
     private InvincibilityController invincibilityController;
     private PlayerController playerController;
@@ -15,6 +14,8 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
     private Color flashColor = Color.white;
     [SerializeField]
     private int numberOfFlashes = 3;
+    public UnityEvent onHealthZero;
+    public UnityEvent onDamageTaken;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
     {
         if (!isInvincible && !playerController.IsShieldActive())
         {
+            onDamageTaken.Invoke();
             health.ChangePlayerHealth(damageAmount);
             CheckIfPlayerHasZeroHealth();
             invincibilityController.StartInvincibility(invincibilityDuration, flashColor, numberOfFlashes);
