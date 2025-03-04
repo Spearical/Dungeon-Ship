@@ -5,6 +5,9 @@ public class Bounces : MonoBehaviour
 {
     [SerializeField]
     private int bounces = 5;
+
+    [SerializeField]
+    private int bounceBoostAddingNumber = 3;
     public UnityEvent onBouncesZero;
 
     public void DecreaseBounces()
@@ -19,6 +22,11 @@ public class Bounces : MonoBehaviour
     public void AddToCurrentBounces(int addToBounces)
     {
         bounces += addToBounces;
+    }
+
+    public void AddToCurrentBounces()
+    {
+        bounces += bounceBoostAddingNumber;
     }
 
     public float GetCurrentBounces()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4929644664951452388}
   - component: {fileID: 3919715381080384530}
   m_Layer: 0
-  m_Name: Spawn Initializing Indicator
+  m_Name: Spawn Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

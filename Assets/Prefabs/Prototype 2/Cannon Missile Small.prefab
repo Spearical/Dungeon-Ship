@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 2860807543284852184}
   - component: {fileID: 3060044814881399757}
   - component: {fileID: 591396138851473822}
-  - component: {fileID: 6995041744477755264}
+  - component: {fileID: 3323849617828939696}
   - component: {fileID: 2599992716620681462}
+  - component: {fileID: 4598892685796112784}
   - component: {fileID: -769460678749605364}
   m_Layer: 0
-  m_Name: Player Missile Small
+  m_Name: Cannon Missile Small
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
---- !u!114 &6995041744477755264
+--- !u!114 &3323849617828939696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,10 +161,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8407993136658935883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0d09f912ee01a40972c6c51e1903a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5947653dc6d50db43a6ca35776f9c199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 15
   aliveTimer: 5
   onContactDestroy:
     m_PersistentCalls:
@@ -192,11 +193,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256028103b661f74a9c66569b505b2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDmgAmount: 0
-  enemyDmgAmount: 5
-  brickDmgAmount: 10
+  playerDmgAmount: 20
+  enemyDmgAmount: 0
+  brickDmgAmount: 0
   enableHitAll: 0
   baseDmgAmount: 45
+--- !u!114 &4598892685796112784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407993136658935883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7e857df3fdd0949a2c8f5c8d2c5070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-769460678749605364
 MonoBehaviour:
   m_ObjectHideFlags: 0

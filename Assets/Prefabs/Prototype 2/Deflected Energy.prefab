@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2352732013278581919}
   - component: {fileID: 7099388220115726828}
   - component: {fileID: 4659614005585687153}
+  - component: {fileID: 3233773439226126900}
   m_Layer: 0
   m_Name: Deflected Energy
   m_TagString: Untagged
@@ -164,8 +165,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6a72fdf372e2e46985e39ad8725d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitByPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2352732013278581919}
+        m_TargetAssemblyTypeName: Bounces, Assembly-CSharp
+        m_MethodName: AddToCurrentBounces
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHitByBrick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2352732013278581919}
+        m_TargetAssemblyTypeName: Bounces, Assembly-CSharp
+        m_MethodName: DecreaseBounces
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHitByMissile:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3233773439226126900}
+        m_TargetAssemblyTypeName: DeflectedProjectileVisual, Assembly-CSharp
+        m_MethodName: LerpEnergyToRed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2352732013278581919}
+        m_TargetAssemblyTypeName: Bounces, Assembly-CSharp
+        m_MethodName: AddToCurrentBounces
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHitsForDamageBoost: 3
+  hitsAgainstBrickDamageBoost: 10
+  hitsAgainstEnemyDamageBoost: 10
   speed: 500
   aliveTimer: 30
+  currentHitsForDamageBoost: 0
+  canRebounce: 0
 --- !u!114 &2352732013278581919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounces: 5
+  bounceBoostAddingNumber: 5
   onBouncesZero:
     m_PersistentCalls:
       m_Calls:
@@ -220,6 +284,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDmgAmount: 0
   enemyDmgAmount: 10
-  brickDmgAmount: 100
+  brickDmgAmount: 50
   enableHitAll: 0
   baseDmgAmount: 50
+--- !u!114 &3233773439226126900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712947917662387925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b7ba731a8e590488689ed38d0c779a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
