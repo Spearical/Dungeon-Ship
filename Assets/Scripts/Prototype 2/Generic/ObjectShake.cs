@@ -10,7 +10,7 @@ public class ObjectShake : MonoBehaviour
 
     IEnumerator Shake(float duration, float magnitude)
     {
-        Vector3 originalPosition = transform.position;
+        Vector3 originalPosition = transform.localPosition;
 
         float elapsedTime = 0f;
 
@@ -26,7 +26,7 @@ public class ObjectShake : MonoBehaviour
             // wait one frame
             yield return null;
         }
-        transform.position = originalPosition;
+        transform.localPosition = originalPosition;
     }
 
     public void ShakeObject()

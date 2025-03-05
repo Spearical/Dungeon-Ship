@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7084773973235566584, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+      propertyPath: brickScore
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: -6986004734711602119, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: states.Array.size
       value: 6
@@ -42,11 +46,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.477
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96,6 +100,28 @@ PrefabInstance:
       insertIndex: 5
       addedObject: {fileID: 8451343886531448070}
   m_SourcePrefab: {fileID: 100100000, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+--- !u!114 &6253302552579421925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6112839503117440653, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+  m_PrefabInstance: {fileID: 9071064738355453846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694603887296323794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16635ded80de66a4e833ebc584112940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7059149074624214568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7199628530819307074, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+  m_PrefabInstance: {fileID: 9071064738355453846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694603887296323794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cb4ce1e9ee56242bae3f56e1300e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8694603887296323794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 381562948104535876, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
@@ -114,6 +140,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnbreakable: 0
+  OnHitEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7059149074624214568}
+        m_TargetAssemblyTypeName: ObjectShake, Assembly-CSharp
+        m_MethodName: ShakeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6253302552579421925}
+        m_TargetAssemblyTypeName: BrickDamageSFX, Assembly-CSharp
+        m_MethodName: PlayBrickDamagedSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8451343886531448070
 MonoBehaviour:
   m_ObjectHideFlags: 0

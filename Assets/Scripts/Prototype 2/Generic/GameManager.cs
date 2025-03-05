@@ -1,15 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
-    public int currentLevel = 1;
     public int score = 0;
-    public int lives = 3;
-    public bool enableDebug = false;
+    public GameObject player;
+    [SerializeField]
+    private GameState gameState;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        SetUpAllBrickInstances();
+        SetUpPlayerInstance();
     }
 
     private void Start()
@@ -20,25 +22,31 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         score = 0;
-        lives = 3;
-
-        if (enableDebug) LoadPlayground();
-        else LoadLevel(1);
-    }
-
-    private void LoadLevel(int level)
-    {
-        currentLevel = level;
-        SceneManager.LoadScene("Level_" + level);
-    }
-
-    private void LoadPlayground()
-    {
-        SceneManager.LoadScene("Playground");
     }
 
     public void UpdateScore(int addToScore)
     {
         score += addToScore;
+    }
+
+    public void SetGameState(GameState state)
+    {
+        gameState = state;
+    }
+
+    private void SetUpAllBrickInstances()
+    {
+        var foundBrickObjects = FindObjectsByType<BrickBehavior>(FindObjectsSortMode.None);
+
+        foreach (BrickBehavior brick in foundBrickObjects)
+        {
+            brick.SetGameManager(this);
+        }
+    }
+
+    private void SetUpPlayerInstance()
+    {
+        var foundPlayerObject = FindObjectOfType<PlayerHealth>();
+        foundPlayerObject.SetGameManager(this);
     }
 }

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7084773973235566584, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+      propertyPath: brickScore
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: -6986004734711602119, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: states.Array.size
       value: 4
@@ -34,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.477
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737897573300584992, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_LocalPosition.z
@@ -106,6 +110,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnbreakable: 0
+  OnHitEffect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6880212325992683302}
+        m_TargetAssemblyTypeName: ObjectShake, Assembly-CSharp
+        m_MethodName: ShakeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7513270320317601771}
+        m_TargetAssemblyTypeName: BrickDamageSFX, Assembly-CSharp
+        m_MethodName: PlayBrickDamagedSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &516954405780631148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +153,25 @@ MonoBehaviour:
   between75And50PercentHealthSprite: {fileID: 21300000, guid: ec92fdefde5103f43ae58520b958672c, type: 3}
   between50And25PercentHealthSprite: {fileID: 21300000, guid: 2984736436c8ddf45b964c5c53ed7524, type: 3}
   lessThan25PercentHealthSprite: {fileID: 21300000, guid: 98c12531db55e5b4eb87c5d524be6c4b, type: 3}
+--- !u!114 &6880212325992683302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7199628530819307074, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+  m_PrefabInstance: {fileID: 4859009439466897048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054514521977717212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cb4ce1e9ee56242bae3f56e1300e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7513270320317601771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6112839503117440653, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+  m_PrefabInstance: {fileID: 4859009439466897048}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054514521977717212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16635ded80de66a4e833ebc584112940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
