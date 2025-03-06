@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour

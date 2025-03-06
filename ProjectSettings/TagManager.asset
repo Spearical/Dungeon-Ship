@@ -21,10 +21,10 @@ TagManager:
   - Boundaries
   - Background
   - Enemies
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Player Projectiles
+  - Enemy Projectiles
+  - Deflected Energy
   - 
   - 
   - 

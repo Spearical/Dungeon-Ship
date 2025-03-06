@@ -4,6 +4,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     private float maxHealth = 100f;
+    [SerializeField]
     private float currentHealth;
 
     private void Start()
@@ -23,5 +24,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public float GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 }

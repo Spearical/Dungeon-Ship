@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
-    private float moveSpeed = 50f;
+    private float moveSpeed = 500f;
     [SerializeField]
     private float missileCoolDownTime = 0.5f;
     [SerializeField]
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool shieldActive = false;
     [SerializeField]
     private bool shieldOnCooldown = false;
-    private Vector3 rawInputMovement;
+    private Vector2 inputMovement;
     private GameObject tmpProjectile;
     private void Awake()
     {
@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidBody.AddForce(rawInputMovement * moveSpeed);
+        float x = inputMovement.x * moveSpeed * Time.fixedDeltaTime;
+        float y = inputMovement.y * moveSpeed * Time.fixedDeltaTime;
+        rigidBody.velocity = new Vector2(x, y);
     }
 
     public void OnMovement(InputAction.CallbackContext value)
     {
-        Vector2 inputMovement = value.ReadValue<Vector2>();
-        rawInputMovement = new Vector3(inputMovement.x, inputMovement.y, 0f);
+        inputMovement = value.ReadValue<Vector2>();
     }
 
     public void OnShoot(InputAction.CallbackContext value)
@@ -49,7 +50,10 @@ public class PlayerController : MonoBehaviour
         {
             justFired = true;
             StartCoroutine(MissileCooldown());
-            tmpProjectile = Instantiate(projectilePrefab, transform.position + Vector3.up, Quaternion.identity);
+            
+            float yOffset = 2.0f;
+            Vector3 spawnPosition =  new Vector3(transform.position.x, transform.position.y + yOffset, 0);
+            tmpProjectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
             
             PlayerProjectile playerMissile = tmpProjectile.GetComponent<PlayerProjectile>();
             playerMissile.SetProjectileSprite(projectileSprite);

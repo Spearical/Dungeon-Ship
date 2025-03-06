@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6995041744477755264}
   - component: {fileID: 2599992716620681462}
   - component: {fileID: -769460678749605364}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player Missile Small
-  m_TagString: Projectile
+  m_TagString: Player Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 9bf949c57ac9da04ca9cc549019fcde5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0d09f912ee01a40972c6c51e1903a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 600
   aliveTimer: 5
   onContactDestroy:
     m_PersistentCalls:
@@ -193,8 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDmgAmount: 0
-  enemyDmgAmount: 5
-  brickDmgAmount: 10
+  enemyDmgAmount: 2
+  brickDmgAmount: 2
   enableHitAll: 0
   baseDmgAmount: 45
 --- !u!114 &-769460678749605364

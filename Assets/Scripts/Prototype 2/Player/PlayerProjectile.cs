@@ -5,7 +5,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
     [SerializeField]
-    private float speed = 15.0f;
+    private float speed = 600.0f;
     [SerializeField]
     private float aliveTimer = 5.0f;
     public UnityEvent onContactDestroy;
@@ -17,7 +17,7 @@ public class PlayerProjectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.AddForce(transform.up.normalized * speed);
+        rigidBody.velocity =  Vector2.up * speed * Time.fixedDeltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

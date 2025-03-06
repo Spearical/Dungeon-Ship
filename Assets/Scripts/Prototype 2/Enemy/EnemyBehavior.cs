@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    IMovement movementBehavior;
+    private IMovement movementBehavior;
     [SerializeField]
     private float movementStartDelay = 3.0f;
     private float timer;
+    private bool isMovementDisabled;
     void Awake()
     {
         movementBehavior = GetComponent<IMovement>();
+    }
+
+    void OnEnable()
+    {
+        isMovementDisabled = false;
     }
 
     void Update()
@@ -18,9 +24,15 @@ public class EnemyBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timer > movementStartDelay)
+        if (!isMovementDisabled && timer > movementStartDelay)
         {
             movementBehavior.Move();
         }
     }
+
+    public void DisableMovement()
+    {
+        isMovementDisabled = true;
+    }
+
 }

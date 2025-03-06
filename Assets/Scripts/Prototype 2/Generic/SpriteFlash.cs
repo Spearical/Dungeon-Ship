@@ -8,10 +8,16 @@ public class SpriteFlash : MonoBehaviour
     public Color flashColor;
     public int numberOfFlashes;
     private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+        originalColor = spriteRenderer.color;
     }
 
     public IEnumerator FlashCoroutine(float flashDuration, Color flashColor, int numberOfFlashes)
@@ -35,6 +41,11 @@ public class SpriteFlash : MonoBehaviour
 
             yield return null;
         }
+
+        // Wait one frame before turning back into original color.
+        yield return null;
+
+        spriteRenderer.color = originalColor;
     }
 
     public void FlashSprite()

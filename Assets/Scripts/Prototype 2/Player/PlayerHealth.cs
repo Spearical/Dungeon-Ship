@@ -35,4 +35,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         gameManager.SetGameState(GameState.GameOver);
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }

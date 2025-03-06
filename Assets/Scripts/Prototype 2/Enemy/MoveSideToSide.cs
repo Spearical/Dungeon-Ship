@@ -5,7 +5,7 @@ public class MoveSideToSide : MonoBehaviour, IMovement
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
-    private float moveSpeed = 50f;
+    private float moveSpeed = 250f;
     private int direction;
     [SerializeField]
     private const int DETECTION_RANGE_SCALAR = 2;
@@ -22,7 +22,7 @@ public class MoveSideToSide : MonoBehaviour, IMovement
 
     public void Move()
     {
-        rigidBody.AddForce(new Vector2(direction, 0f) * moveSpeed);
+        rigidBody.AddForce(new Vector2(direction, 0f) * moveSpeed * Time.fixedDeltaTime);
         DetectIncomingWall();
     }
 

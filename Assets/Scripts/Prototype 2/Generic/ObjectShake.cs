@@ -7,6 +7,17 @@ public class ObjectShake : MonoBehaviour
     private float duration;
     [SerializeField]
     private float magnitude;
+    [SerializeField]
+    private bool isMovingObject;
+    Vector3 staticObjectStartingPosition;
+
+    void Start()
+    {
+        if (!isMovingObject)
+        {
+            staticObjectStartingPosition = transform.localPosition;
+        }
+    }
 
     IEnumerator Shake(float duration, float magnitude)
     {
@@ -26,7 +37,15 @@ public class ObjectShake : MonoBehaviour
             // wait one frame
             yield return null;
         }
-        transform.localPosition = originalPosition;
+
+        if (!isMovingObject)
+        {
+            transform.localPosition = staticObjectStartingPosition;
+        }
+        else
+        {
+            transform.localPosition = originalPosition;
+        }
     }
 
     public void ShakeObject()

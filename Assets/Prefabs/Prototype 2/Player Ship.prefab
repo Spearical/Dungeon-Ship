@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: e3ef4878b067fb2439089781fde4f600, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -355,9 +355,9 @@ MonoBehaviour:
   deflectionShield: {fileID: 1432428642411286460}
   shieldReadyRing: {fileID: 2376892786940147888}
   rigidBody: {fileID: 2415038587776161831}
-  moveSpeed: 75
-  missileCoolDownTime: 0.3
-  shieldCooldownTime: 5
+  moveSpeed: 500
+  missileCoolDownTime: 0.2
+  shieldCooldownTime: 3
   shieldActiveTime: 0.2
   justFired: 0
   shieldActive: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcfa03b7afe59f4ea4e3cdf396e9a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
 --- !u!114 &8938285217205126348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +445,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthSlider: {fileID: 0}
 --- !u!114 &4817230492976072960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.3
   magnitude: 0.3
+  isMovingObject: 1
 --- !u!1001 &1577067075998293484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,6 +522,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7307762050030498614}
     m_Modifications:
+    - target: {fileID: 840327845263984462, guid: b0eaa75c806ad634a9ecc88f47ff036d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3827696033099867484, guid: b0eaa75c806ad634a9ecc88f47ff036d, type: 3}
       propertyPath: m_Name
       value: Shield Ready Indicator
