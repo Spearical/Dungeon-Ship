@@ -1,20 +1,14 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IHealth
+public class EnemyHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     private float maxHealth = 100f;
     private float currentHealth;
-    private GameManager gameManager;
 
-    private void Awake()
+    private void Start()
     {
         currentHealth = maxHealth;
-    }
-
-    public void SetGameManager(GameManager gameManager)
-    {
-        this.gameManager = gameManager;
     }
     public void ChangeHealth(float amountToChange)
     {
@@ -29,10 +23,5 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public float GetMaxHealth()
     {
         return maxHealth;
-    }
-
-    public void GameOverOnZeroHealth()
-    {
-        gameManager.SetGameState(GameState.GameOver);
     }
 }

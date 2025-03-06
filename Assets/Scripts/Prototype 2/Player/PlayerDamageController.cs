@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerHealth))]
 public class PlayerDamageController : MonoBehaviour, IDamageable
 {
     public bool isInvincible = false;
-    private PlayerHealth health;
+    private IHealth health;
     private InvincibilityController invincibilityController;
     private PlayerController playerController;
     [SerializeField]
@@ -16,12 +16,19 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
     private int numberOfFlashes = 3;
     public UnityEvent onHealthZero;
     public UnityEvent onDamageTaken;
+    public Slider healthSlider;
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         invincibilityController = GetComponent<InvincibilityController>();
-        health = GetComponent<PlayerHealth>();
+        health = GetComponent<IHealth>();
+    }
+
+    private void Start()
+    {
+        healthSlider.maxValue = health.GetMaxHealth();
+        healthSlider.value = health.GetCurrentHealth();
     }
 
     public void DealDamage(float damageAmount)
@@ -29,14 +36,15 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
         if (!isInvincible && !playerController.IsShieldActive())
         {
             onDamageTaken.Invoke();
-            health.ChangePlayerHealth(damageAmount);
+            health.ChangeHealth(damageAmount);
+            healthSlider.value = health.GetCurrentHealth();
             CheckIfPlayerHasZeroHealth();
             invincibilityController.StartInvincibility(invincibilityDuration, flashColor, numberOfFlashes);
         }
     }
     private void CheckIfPlayerHasZeroHealth()
     {
-        if (health.GetCurrentPlayerHealth() <= 0)
+        if (health.GetCurrentHealth() <= 0)
         {
             onHealthZero.Invoke();
         }    

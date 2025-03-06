@@ -1,18 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Health))]
 public class EnemyDamageController : MonoBehaviour, IDamageable
 {
-    private Health health;
-    private EnemyBehavior enemyBehavior;
+    private IHealth health;
     public UnityEvent onHealthZero;
     public UnityEvent onDamageTaken;
 
     private void Awake()
     {
-        enemyBehavior = GetComponent<EnemyBehavior>();
-        health = GetComponent<Health>();
+        health = GetComponent<IHealth>();
     }
 
     public void DealDamage(float damageAmount)
@@ -23,9 +20,9 @@ public class EnemyDamageController : MonoBehaviour, IDamageable
     }
     private void CheckIfEnemyHasZeroHealth()
     {
-        if (health.GetHeatlth() <= 0)
+        if (health.GetCurrentHealth() <= 0)
         {
-            onHealthZero.Invoke();
+            onHealthZero.Invoke();  
         }    
     }
 }

@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
@@ -6,17 +8,24 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public GameObject player;
     [SerializeField]
+    private TextMeshProUGUI scoreText;
+    [SerializeField]
     private GameState gameState;
 
-    private void Awake()
+    void Awake()
     {
         SetUpAllBrickInstances();
         SetUpPlayerInstance();
     }
 
-    private void Start()
+    void Start()
     {
         NewGame();
+    }
+
+    void Update()
+    {
+        scoreText.text = "Score: " + score;
     }
 
     private void NewGame()
