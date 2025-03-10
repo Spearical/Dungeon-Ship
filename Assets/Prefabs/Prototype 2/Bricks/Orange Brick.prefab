@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: states.Array.data[5]
       value: 
       objectReference: {fileID: 21300000, guid: 1bb22f9af4e47404db1b6b88228b15d4, type: 3}
+    - target: {fileID: -5677116651326035684, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 381562948104535876, guid: 0c1036ab72373ae4fb4f75bff1124934, type: 3}
       propertyPath: m_Name
       value: Orange Brick
