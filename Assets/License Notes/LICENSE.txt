@@ -1,0 +1,10 @@
+Background: https://wall.alphacoders.com/big.php?i=885542
+
+Damage (Crunch) Sound: https://pixabay.com/users/freesound_community-46691455/
+
+Main Ship Sprite made by Broah
+
+Breakout Tile Set: https://jamiecross.itch.io/breakout-brick-breaker-game-tile-set-mega-pack
+
+Monster & Ship Sprites: https://larzes.itch.io/2d-space-shooter-sprites
+

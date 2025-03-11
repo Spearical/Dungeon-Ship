@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Brick
+  - Player Projectile
+  - Enemy Projectile
+  - Player Shield
+  - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -11,13 +18,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Boundaries
+  - Background
+  - Enemies
+  - Player
+  - Player Projectiles
+  - Enemy Projectiles
+  - Deflected Energy
   - 
   - 
   - 
