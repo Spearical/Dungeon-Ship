@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounces: 5
-  bounceBoostAddingNumber: 5
+  bounceBoostAddingNumber: 2
   onBouncesZero:
     m_PersistentCalls:
       m_Calls:
