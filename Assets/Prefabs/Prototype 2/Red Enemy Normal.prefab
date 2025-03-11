@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -3544667920154306189}
   - component: {fileID: -4522909146620725527}
   - component: {fileID: -5991338835148712977}
+  - component: {fileID: -1634805342836504465}
   m_Layer: 8
   m_Name: Red Enemy Normal
   m_TagString: Enemy
@@ -266,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e175a0776b5dda14fb715744629f7ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyScore: 100
   movementStartDelay: 1
 --- !u!114 &1176170470440416377
 MonoBehaviour:
@@ -467,6 +467,23 @@ MonoBehaviour:
   audioSource: {fileID: 4405797748603289918}
   hitSFX: {fileID: 8300000, guid: 2214d4e8990683a4b9b7566ddc42984c, type: 3}
   deathSFX: {fileID: 8300000, guid: c2642fb35ccc6fd49996a31ec31aa021, type: 3}
+--- !u!114 &-1634805342836504465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172229857740220966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256028103b661f74a9c66569b505b2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDmgAmount: 50
+  enemyDmgAmount: 0
+  brickDmgAmount: 0
+  enableHitAll: 0
+  baseDmgAmount: 45
 --- !u!1001 &6730966165429071525
 PrefabInstance:
   m_ObjectHideFlags: 0

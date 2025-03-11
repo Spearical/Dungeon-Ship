@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: 8938285217205126348}
   - component: {fileID: 4817230492976072960}
   - component: {fileID: 6049286422106424429}
-  - component: {fileID: -7251304909663740893}
   - component: {fileID: 5623705766276811413}
   - component: {fileID: 7552596482054467376}
+  - component: {fileID: 3087708754834522843}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Player
@@ -275,7 +275,7 @@ MonoBehaviour:
   moveSpeed: 500
   missileCoolDownTime: 0.2
   shieldCooldownTime: 3
-  shieldActiveTime: 0.2
+  shieldActiveTime: 0.5
   justFired: 0
   shieldActive: 0
   shieldOnCooldown: 0
@@ -311,9 +311,9 @@ MonoBehaviour:
   onHealthZero:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -7251304909663740893}
-        m_TargetAssemblyTypeName: DestructibleObject, Assembly-CSharp
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 3087708754834522843}
+        m_TargetAssemblyTypeName: DeactivatePlayer, Assembly-CSharp
+        m_MethodName: DeactivatePlayerFunction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -390,18 +390,6 @@ MonoBehaviour:
   flashDuration: 0
   flashColor: {r: 0, g: 0, b: 0, a: 0}
   numberOfFlashes: 0
---- !u!114 &-7251304909663740893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6704311188713161493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3d9aa276a466c468a95957ed2ae9f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5623705766276811413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +419,18 @@ MonoBehaviour:
   duration: 0.3
   magnitude: 0.3
   isMovingObject: 1
+--- !u!114 &3087708754834522843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704311188713161493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59727670e5ed544c8db30c89f8a4183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1577067075998293484
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext value)
     {
-        if (value.started  && !justFired)
+        if (value.started  && !justFired && gameObject.activeInHierarchy == true)
         {
             justFired = true;
             StartCoroutine(MissileCooldown());
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnDeflect(InputAction.CallbackContext value)
     {
-        if (value.started && !shieldActive && !shieldOnCooldown)
+        if (value.started && !shieldActive && !shieldOnCooldown && gameObject.activeInHierarchy == true)
         {
             shieldActive = true;
             StartCoroutine(ActivateShield());

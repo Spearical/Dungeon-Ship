@@ -39,7 +39,6 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
             health.ChangeHealth(damageAmount);
             healthSlider.value = health.GetCurrentHealth();
             CheckIfPlayerHasZeroHealth();
-            invincibilityController.StartInvincibility(invincibilityDuration, flashColor, numberOfFlashes);
         }
     }
     private void CheckIfPlayerHasZeroHealth()
@@ -47,6 +46,10 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
         if (health.GetCurrentHealth() <= 0)
         {
             onHealthZero.Invoke();
-        }    
+        }
+        else
+        {
+            invincibilityController.StartInvincibility(invincibilityDuration, flashColor, numberOfFlashes);
+        }
     }
 }
