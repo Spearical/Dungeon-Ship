@@ -6,8 +6,10 @@ public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    private const float PAR_TIME = 120;
-    private const float MAX_MULTIPLER = 100;
+    [SerializeField]
+    private float PAR_TIME = 120;
+    [SerializeField]
+    private float MAX_MULTIPLER = 10;
     public GameObject player;
     public UnityEvent onGameOver;
     public UnityEvent onVictory;

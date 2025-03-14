@@ -7023,9 +7023,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c983c6fc7ff394241bdc2189d23192bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ce21dc076cc76fe4888373214a6b41a1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11349,6 +11349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  PAR_TIME: 120
+  MAX_MULTIPLER: 100
   player: {fileID: 1268786367}
   onGameOver:
     m_PersistentCalls:
