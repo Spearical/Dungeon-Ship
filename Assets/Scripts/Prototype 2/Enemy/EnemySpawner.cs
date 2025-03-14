@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
+    private int spawnerDestroyedScore = 100;
+    [SerializeField]
     private float initialSpawnDelay = 1.0f;
     [SerializeField]
     private float enemySpawnDelay = 3.0f;
@@ -20,6 +22,13 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemies;
     private List<GameObject> enemiesList;
     private const float ENEMY_SPAWN_BUFFER_TIME = 1.0f;
+
+    private GameManager gameManager;
+
+    public void SetGameManager(GameManager gameManager)
+    {
+        this.gameManager = gameManager;
+    }
 
     void Awake()
     {
@@ -96,6 +105,10 @@ public class EnemySpawner : MonoBehaviour
         
         if (isAllInactive)
         {
+            if (!isInitialSpawnPhase)
+            {
+                gameManager.UpdateScore(spawnerDestroyedScore);
+            }
             currentlySpawningEnemies = true;
             StartCoroutine(SpawnEnemiesFromPortalAfterTimer());
         }

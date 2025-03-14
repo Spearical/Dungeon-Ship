@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: -4522909146620725527}
   - component: {fileID: -5991338835148712977}
   - component: {fileID: -1634805342836504465}
-  - component: {fileID: -4998387662810442559}
+  - component: {fileID: -8774079067916404001}
   m_Layer: 8
-  m_Name: Red Enemy Normal
+  m_Name: Green Enemy Normal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 945d80818f9223b4ab4744b681944d83, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1fae259a3e689a441bde84d076159299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -256,9 +256,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.75
+  m_Radius: 0.7
 --- !u!114 &7313348747500714291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   brickDmgAmount: 0
   enableHitAll: 0
   baseDmgAmount: 45
---- !u!114 &-4998387662810442559
+--- !u!114 &-8774079067916404001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,15 +495,15 @@ PrefabInstance:
       objectReference: {fileID: 8407993136658935883, guid: 079d606f7bfbc0a449926977793fb63f, type: 3}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.x
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnRotationDegreesOffset
-      value: 90
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 2729089501937231004, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Name
-      value: Projectile Spawner (Left)
+      value: Projectile Spawner (DownR)
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Layer
@@ -581,15 +581,15 @@ PrefabInstance:
       objectReference: {fileID: 8407993136658935883, guid: 079d606f7bfbc0a449926977793fb63f, type: 3}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnRotationDegreesOffset
-      value: -90
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2729089501937231004, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -633,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Name
-      value: Projectile Spawner (Right)
+      value: Projectile Spawner (UpL)
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Layer
@@ -666,8 +666,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8407993136658935883, guid: 079d606f7bfbc0a449926977793fb63f, type: 3}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
+      propertyPath: spawnCoordinateOffset.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
+      propertyPath: spawnRotationDegreesOffset
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 2729089501937231004, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -711,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Name
-      value: Projectile Spawner (Down)
+      value: Projectile Spawner (DownL)
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Layer
@@ -744,12 +752,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8407993136658935883, guid: 079d606f7bfbc0a449926977793fb63f, type: 3}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
+      propertyPath: spawnCoordinateOffset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnCoordinateOffset.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2341824759254067956, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: spawnRotationDegreesOffset
-      value: 0
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 2729089501937231004, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -793,7 +805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Name
-      value: Projectile Spawner (Up)
+      value: Projectile Spawner (UpR)
       objectReference: {fileID: 0}
     - target: {fileID: 4339746335133836385, guid: 40f59f8a06a02984498ca50dba93493a, type: 3}
       propertyPath: m_Layer

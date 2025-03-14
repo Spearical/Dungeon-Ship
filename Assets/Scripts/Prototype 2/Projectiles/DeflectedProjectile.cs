@@ -7,37 +7,56 @@ public class DeflectedProjectile : MonoBehaviour
     public UnityEvent onHitByPlayer;
     public UnityEvent onHitByBrick;
     public UnityEvent onHitByMissile;
+    public UnityEvent onAboutToExpire;
     public int maxHitsForDamageBoost = 3;
     public int hitsAgainstBrickDamageBoost = 10;
     public int hitsAgainstEnemyDamageBoost = 10;
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float speed = 500.0f;
+    private const float MAX_TIME_ALIVE = 30.0f;
     [SerializeField]
-    private float aliveTimer = 30.0f;
+    private float aliveTimer;
     [SerializeField]
     private int currentHitsForDamageBoost = 0;
     private const float BOUNCE_BOOST_BUFFER_TIME = 1.0f;
+    private const float EXPIRE_INDICATOR_THRESHOLD = 5.0f;
     [SerializeField]
     private bool canRebounce;
+    [SerializeField]
+    private bool expireSignaled;
     private CollisionDamage collisionDamage;
 
     private void Awake()
     {
-        canRebounce = false;
         rigidBody = GetComponent<Rigidbody2D>();
         collisionDamage = GetComponent<CollisionDamage>();
     }
 
     private void Start()
     {
-        Destroy(gameObject, aliveTimer);
+        aliveTimer = 0;
+        canRebounce = false;
+        expireSignaled = false;
         SetRandomTrajectory();
     }
 
     private void Update()
     {
         RebounceBufferTimer();
+
+        aliveTimer += Time.deltaTime;
+
+        if ( MAX_TIME_ALIVE - aliveTimer <= EXPIRE_INDICATOR_THRESHOLD && !expireSignaled)
+        {
+            onAboutToExpire.Invoke();
+            expireSignaled = true;
+        }
+
+        if (aliveTimer >=  MAX_TIME_ALIVE)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void RebounceBufferTimer()

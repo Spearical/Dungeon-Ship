@@ -6,8 +6,8 @@ public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    public const float PAR_TIME = 300;
-    public const float MAX_MULTIPLER = 10;
+    private const float PAR_TIME = 120;
+    private const float MAX_MULTIPLER = 100;
     public GameObject player;
     public UnityEvent onGameOver;
     public UnityEvent onVictory;
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         SetUpAllBrickInstances();
         SetUpPlayerInstance();
+        SetUpAllEnemyPortalInstances();
     }
 
     void Start()
@@ -138,10 +139,20 @@ public class GameManager : MonoBehaviour
         foundPlayerObject.SetGameManager(this);
     }
 
+    private void SetUpAllEnemyPortalInstances()
+    {
+        var foundEnemySpawnerObjects = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+
+        foreach (EnemySpawner enemySpawner in foundEnemySpawnerObjects)
+        {
+            enemySpawner.SetGameManager(this);
+        }
+    }
 
     private bool CheckAllBrickInstancesDestroyed()
     {
         var foundBrickInstances = GameObject.FindGameObjectsWithTag("Brick");
         return foundBrickInstances.Length <= 0;
     }
+
 }

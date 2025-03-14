@@ -14,6 +14,7 @@ public class DisplayBounces : MonoBehaviour
 
     public void DisplayNumberOfBouncesLeft()
     {
-        bounceText.text = bouncesComponent.GetCurrentBounces().ToString();
+        int numberOfBouncesLeft = bouncesComponent.GetCurrentBounces() - 1;
+        bounceText.text = numberOfBouncesLeft.ToString();
     }
 }

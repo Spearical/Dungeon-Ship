@@ -273,9 +273,10 @@ MonoBehaviour:
   shieldReadyRing: {fileID: 2376892786940147888}
   rigidBody: {fileID: 2415038587776161831}
   moveSpeed: 500
-  missileCoolDownTime: 0.2
+  missileCoolDownTime: 0.3
   shieldCooldownTime: 3
   shieldActiveTime: 0.5
+  isFiring: 0
   justFired: 0
   shieldActive: 0
   shieldOnCooldown: 0
@@ -387,9 +388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf7f083dac2c7a478e8bed93c17f3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashDuration: 0
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
-  numberOfFlashes: 0
 --- !u!114 &5623705766276811413
 MonoBehaviour:
   m_ObjectHideFlags: 0

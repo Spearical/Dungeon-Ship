@@ -9,6 +9,8 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField] 
     private float spawnRotationDegreesOffset;
     [SerializeField] 
+    private float firingStartDelay = 0.0f;
+    [SerializeField] 
     private float firingRate = 1.0f;
     [SerializeField] 
     private float speed = 1.0f;
@@ -16,9 +18,14 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField]
     private Sprite sprite;
     private GameObject spawnedProjectile;
-    private float timer = 0.0f;    
-    
-    void Update()
+    private float timer = 0.0f;
+
+    private void Start()
+    {
+        Invoke("Fire", firingStartDelay);
+    }
+
+    private void Update()
     {
         timer += Time.deltaTime;
         if (timer >= firingRate)
@@ -33,10 +40,9 @@ public class ProjectileSpawner : MonoBehaviour
         if (projectilePrefab)
         {
             Vector3 offset = new Vector3(spawnCoordinateOffset.x, spawnCoordinateOffset.y, 0f);
-            spawnedProjectile = Instantiate(projectilePrefab, transform.position + offset, Quaternion.identity);
+            spawnedProjectile = Instantiate(projectilePrefab, transform.position + offset, Quaternion.Euler(0, 0, spawnRotationDegreesOffset));
             spawnedProjectile.GetComponent<EnemyProjectile>().SetProjectileSpeed(speed);
             spawnedProjectile.GetComponent<EnemyProjectile>().SetProjectileSprite(sprite);
-            spawnedProjectile.transform.rotation = transform.rotation * Quaternion.Euler(0 ,0, spawnRotationDegreesOffset);
         }
     }
 }
