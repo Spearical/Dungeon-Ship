@@ -17,7 +17,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.AddForce(transform.up.normalized * speed);
+        rigidBody.AddForce(transform.up * speed);
     }
 
     private void OnCollisionEnter2D()

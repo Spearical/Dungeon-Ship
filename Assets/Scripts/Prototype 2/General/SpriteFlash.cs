@@ -4,9 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteFlash : MonoBehaviour
 {
-    public float flashDuration;
-    public Color flashColor;
-    public int numberOfFlashes;
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
@@ -46,10 +43,5 @@ public class SpriteFlash : MonoBehaviour
         yield return null;
 
         spriteRenderer.color = originalColor;
-    }
-
-    public void FlashSprite()
-    {
-        StartCoroutine(FlashCoroutine(flashDuration, flashColor, numberOfFlashes));
     }
 }

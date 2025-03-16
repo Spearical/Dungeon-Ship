@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDmgAmount: 0
   enemyDmgAmount: 10
-  brickDmgAmount: 10
+  brickDmgAmount: 5
   enableHitAll: 0
   baseDmgAmount: 45
 --- !u!114 &-769460678749605364

@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float shieldActiveTime = 1.0f;
     [SerializeField]
+    private bool isFiring = false;
+    [SerializeField]
     private bool justFired = false;
     [SerializeField]
     private bool shieldActive = false;
@@ -39,6 +41,14 @@ public class PlayerController : MonoBehaviour
         rigidBody.velocity = new Vector2(x, y);
     }
 
+    private void Update()
+    {
+        if (isFiring && !justFired)
+        {
+            StartCoroutine(FireProjectile());
+        }
+    }
+
     public void OnMovement(InputAction.CallbackContext value)
     {
         inputMovement = value.ReadValue<Vector2>();
@@ -46,18 +56,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext value)
     {
-        if (value.started  && !justFired && gameObject.activeInHierarchy == true)
+        if ((value.started || value.performed) && gameObject.activeInHierarchy == true)
         {
-            justFired = true;
-            StartCoroutine(MissileCooldown());
-            
-            float yOffset = 2.0f;
-            Vector3 spawnPosition =  new Vector3(transform.position.x, transform.position.y + yOffset, 0);
-            tmpProjectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-            
-            PlayerProjectile playerMissile = tmpProjectile.GetComponent<PlayerProjectile>();
-            playerMissile.SetProjectileSprite(projectileSprite);
-            playerMissile.Fire();
+            isFiring = true;
+        }
+
+        if (value.canceled)
+        {
+            isFiring = false;
         }
     }
 
@@ -98,5 +104,19 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(missileCoolDownTime);
         justFired = false;
+    }
+
+    IEnumerator FireProjectile()
+    {
+        justFired = true;
+
+        Vector3 spawnPosition =  new Vector3(transform.position.x, transform.position.y, 0);
+        tmpProjectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+            
+        PlayerProjectile playerMissile = tmpProjectile.GetComponent<PlayerProjectile>();
+        playerMissile.SetProjectileSprite(projectileSprite);
+        playerMissile.Fire();
+        
+        yield return StartCoroutine(MissileCooldown());
     }
 }

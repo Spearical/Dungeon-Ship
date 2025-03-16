@@ -38,7 +38,7 @@ public class Bounces : MonoBehaviour
         onBouncesUpdated.Invoke();
     }
 
-    public float GetCurrentBounces()
+    public int GetCurrentBounces()
     {
         return bounces;
     }

@@ -6,8 +6,10 @@ public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    public const float PAR_TIME = 300;
-    public const float MAX_MULTIPLER = 10;
+    [SerializeField]
+    private float PAR_TIME = 120;
+    [SerializeField]
+    private float MAX_MULTIPLER = 100;
     public GameObject player;
     public UnityEvent onGameOver;
     public UnityEvent onVictory;
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         SetUpAllBrickInstances();
         SetUpPlayerInstance();
+        SetUpAllEnemyPortalInstances();
     }
 
     void Start()
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
     private int FinalScoreMultiplier(float time)
     {
         // Source: https://math.stackexchange.com/questions/4476575/calculate-score-in-a-game-based-on-time-passed
-        float muliplierFloat = -1 + ((MAX_MULTIPLER + 1) / Mathf.Pow(MAX_MULTIPLER + 1, time / PAR_TIME));
+        float muliplierFloat = (MAX_MULTIPLER + 1) / Mathf.Pow(MAX_MULTIPLER + 1, time / PAR_TIME);
         return Mathf.CeilToInt(muliplierFloat);
     }
 
@@ -138,10 +141,20 @@ public class GameManager : MonoBehaviour
         foundPlayerObject.SetGameManager(this);
     }
 
+    private void SetUpAllEnemyPortalInstances()
+    {
+        var foundEnemySpawnerObjects = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None);
+
+        foreach (EnemySpawner enemySpawner in foundEnemySpawnerObjects)
+        {
+            enemySpawner.SetGameManager(this);
+        }
+    }
 
     private bool CheckAllBrickInstancesDestroyed()
     {
         var foundBrickInstances = GameObject.FindGameObjectsWithTag("Brick");
         return foundBrickInstances.Length <= 0;
     }
+
 }

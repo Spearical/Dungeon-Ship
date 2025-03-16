@@ -13,7 +13,7 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void OnPlayGamePress()
     {
-        SceneManager.LoadScene("Playground");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void OnControlsMenuPress()
