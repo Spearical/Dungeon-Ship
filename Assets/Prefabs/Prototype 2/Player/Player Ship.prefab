@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5623705766276811413}
   - component: {fileID: 7552596482054467376}
   - component: {fileID: 3087708754834522843}
+  - component: {fileID: 312306984643061644}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: Player
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &8938285217205126348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +356,21 @@ MonoBehaviour:
       - m_Target: {fileID: 7552596482054467376}
         m_TargetAssemblyTypeName: ObjectShake, Assembly-CSharp
         m_MethodName: ShakeObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealReceived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 312306984643061644}
+        m_TargetAssemblyTypeName: PlayerHealedSFX, Assembly-CSharp
+        m_MethodName: PlayPlayerHealedSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -429,6 +446,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59727670e5ed544c8db30c89f8a4183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &312306984643061644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704311188713161493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a082b5ba672308147aa16e3d490f793c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 59693953983699070}
+  healedSFX: {fileID: 8300000, guid: b4e48c2c2e42a244ebfb9e694f0f4358, type: 3}
 --- !u!1001 &1577067075998293484
 PrefabInstance:
   m_ObjectHideFlags: 0

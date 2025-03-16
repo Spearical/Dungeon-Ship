@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 2860807543284852184}
   - component: {fileID: 3060044814881399757}
   - component: {fileID: 591396138851473822}
-  - component: {fileID: 3323849617828939696}
+  - component: {fileID: -1020118929214662576}
   - component: {fileID: 2599992716620681462}
-  - component: {fileID: 4598892685796112784}
   - component: {fileID: -769460678749605364}
+  - component: {fileID: 8185236350479116515}
   m_Layer: 11
-  m_Name: Cannon Missile Small
-  m_TagString: Projectile
+  m_Name: Enemy Missile Medium
+  m_TagString: Enemy Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 9bf949c57ac9da04ca9cc549019fcde5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76c54579d422f7944ba08bd3ec7ee2c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +123,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.75, y: 1.2}
   m_Direction: 0
 --- !u!50 &591396138851473822
 Rigidbody2D:
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3323849617828939696
+--- !u!114 &-1020118929214662576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,25 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256028103b661f74a9c66569b505b2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDmgAmount: 20
+  playerDmgAmount: 40
   enemyDmgAmount: 0
   brickDmgAmount: 0
   enableHitAll: 0
-  baseDmgAmount: 45
---- !u!114 &4598892685796112784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8407993136658935883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de7e857df3fdd0949a2c8f5c8d2c5070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deflectionDamageMultiplier: 1
-  deflectionSizeMultiplier: 0.8
+  baseDmgAmount: 0
 --- !u!114 &-769460678749605364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +210,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3d9aa276a466c468a95957ed2ae9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8185236350479116515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407993136658935883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7e857df3fdd0949a2c8f5c8d2c5070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deflectionDamageMultiplier: 1.5
+  deflectionSizeMultiplier: 1.2

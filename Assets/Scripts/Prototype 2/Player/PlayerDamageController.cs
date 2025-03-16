@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PlayerDamageController : MonoBehaviour, IDamageable
+public class PlayerDamageController : MonoBehaviour, IDamageable, IHealable
 {
     public bool isInvincible = false;
     private IHealth health;
@@ -16,6 +16,7 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
     private int numberOfFlashes = 3;
     public UnityEvent onHealthZero;
     public UnityEvent onDamageTaken;
+    public UnityEvent onHealReceived;
     public Slider healthSlider;
 
     private void Awake()
@@ -51,5 +52,24 @@ public class PlayerDamageController : MonoBehaviour, IDamageable
         {
             invincibilityController.StartInvincibility(invincibilityDuration, flashColor, numberOfFlashes);
         }
+    }
+
+    public void HealObject(float healAmount)
+    {
+        if (healAmount > 0)
+        {
+            onHealReceived.Invoke();
+            health.ChangeHealth(healAmount);
+            healthSlider.value = health.GetCurrentHealth();
+        }
+        else
+        {
+            throw new System.Exception("Cannot deal positive damage to an object!");
+        }
+    }
+
+    public bool IsAtMaxHP()
+    {
+        return health.GetCurrentHealth() == health.GetMaxHealth();
     }
 }

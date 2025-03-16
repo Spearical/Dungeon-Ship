@@ -5,6 +5,11 @@ using UnityEngine.Events;
 public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject bossManagerObject;
+    [SerializeField]
+    private bool levelHasBoss;
+    private BossManager bossManager;
     public int score = 0;
     [SerializeField]
     private float PAR_TIME = 120;
@@ -26,6 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI finalTimeText;
     [SerializeField]
+    private GameObject bossHealthPanelObject;
+    [SerializeField]
     private GameState gameState;
     [SerializeField]
     private float timer;
@@ -34,6 +41,13 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        levelHasBoss = bossManagerObject != null ? true : false;
+
+        if (levelHasBoss)
+        {
+            bossManager = bossManagerObject.GetComponent<BossManager>();
+        }
+
         SetUpAllBrickInstances();
         SetUpPlayerInstance();
         SetUpAllEnemyPortalInstances();
@@ -52,9 +66,23 @@ public class GameManager : MonoBehaviour
             timerText.text = "Time: " + UpdateTimerText(timer);
         }
 
-        if (CheckAllBrickInstancesDestroyed())
+        if (levelHasBoss)
         {
-            SetGameState(GameState.Victory);
+            if (CheckAllBrickInstancesDestroyed())
+            {
+                bossHealthPanelObject.SetActive(true);
+                if (bossManager.isBossDead)
+                {
+                    SetGameState(GameState.Victory);
+                }
+            }
+        }
+        else
+        {
+            if (CheckAllBrickInstancesDestroyed())
+            {
+                SetGameState(GameState.Victory);
+            }
         }
         
         scoreText.text = "Score: " + score;
@@ -108,13 +136,21 @@ public class GameManager : MonoBehaviour
         isTimerStopped = true;
         onVictory.Invoke();
         player.SetActive(false);
-        scoreText.text = "Score: " + score;
 
         finalTimeText.text = "Final Time: " + UpdateTimerText(timer);
 
         int muliplier = FinalScoreMultiplier(timer);
         multiplierText.text = "Time Multiplier: " + muliplier;
-        finalScoreText.text = "Final Score: " + score * muliplier;
+        if (levelHasBoss)
+        {
+            scoreText.text = "Score: " + bossManager.bossScore + score;
+            finalScoreText.text = "Final Score: " + (bossManager.bossScore + score) * muliplier;
+        }
+        else
+        {
+            scoreText.text = "Score: " + score;
+            finalScoreText.text = "Final Score: " + score * muliplier;
+        }
     }
 
     private void SetGameOverState()

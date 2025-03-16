@@ -11,8 +11,11 @@ public class BrickDamageController : MonoBehaviour, IDamageable
 
     void Awake()
     {
-        currentHealth = GetComponent<Health>();
-        brickDamageVisual = GetComponent<BrickDamageVisual>();
+        if (!isUnbreakable)
+        {
+            currentHealth = GetComponent<Health>();
+            brickDamageVisual = GetComponent<BrickDamageVisual>();
+        }
     }
 
     void Start()

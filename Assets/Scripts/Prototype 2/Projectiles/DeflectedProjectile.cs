@@ -25,7 +25,7 @@ public class DeflectedProjectile : MonoBehaviour
     private bool canRebounce;
     [SerializeField]
     private bool expireSignaled;
-    private CollisionDamage collisionDamage;
+    public CollisionDamage collisionDamage;
 
     private void Awake()
     {
@@ -59,6 +59,11 @@ public class DeflectedProjectile : MonoBehaviour
         }
     }
 
+    public void ScaleUpEnergyOrbSize(float scaleMultiplier)
+    {
+        transform.localScale = new Vector3(1 * scaleMultiplier, 1 * scaleMultiplier, 1 * scaleMultiplier);
+    }
+
     private void RebounceBufferTimer()
     {
         if (!canRebounce)
@@ -73,7 +78,7 @@ public class DeflectedProjectile : MonoBehaviour
         canRebounce = true;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         DecreaseBouncesOnBrickContact(collision.gameObject);
 

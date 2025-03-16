@@ -222,3 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7e857df3fdd0949a2c8f5c8d2c5070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deflectionDamageMultiplier: 1
+  deflectionSizeMultiplier: 0.8
