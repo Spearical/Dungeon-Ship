@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float PAR_TIME = 120;
     [SerializeField]
-    private float MAX_MULTIPLER = 10;
+    private float MAX_MULTIPLER = 100;
     public GameObject player;
     public UnityEvent onGameOver;
     public UnityEvent onVictory;
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     private int FinalScoreMultiplier(float time)
     {
         // Source: https://math.stackexchange.com/questions/4476575/calculate-score-in-a-game-based-on-time-passed
-        float muliplierFloat = -1 + ((MAX_MULTIPLER + 1) / Mathf.Pow(MAX_MULTIPLER + 1, time / PAR_TIME));
+        float muliplierFloat = (MAX_MULTIPLER + 1) / Mathf.Pow(MAX_MULTIPLER + 1, time / PAR_TIME);
         return Mathf.CeilToInt(muliplierFloat);
     }
 
