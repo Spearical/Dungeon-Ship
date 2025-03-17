@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDeathSFX : MonoBehaviour
 {
     [SerializeField]
-    private new ParticleSystem particleSystem;
+    private ParticleSystem particleSystem;
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
