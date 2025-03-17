@@ -6161,10 +6161,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1268786368}
     m_Modifications:
+    - target: {fileID: 4930225947376826894, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930225947376826894, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5706008147362060129, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
       propertyPath: shieldReadyIndicator
       value: 
       objectReference: {fileID: 579266042}
+    - target: {fileID: 6502647660988031255, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6704311188713161493, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
       propertyPath: m_Name
       value: Player Ship
@@ -6207,6 +6219,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307762050030498614, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205324523038790619, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}
+      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8938285217205126348, guid: 8e3f5f0b5fff94445a41e267a5b9a39e, type: 3}

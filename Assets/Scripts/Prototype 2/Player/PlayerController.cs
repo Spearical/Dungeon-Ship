@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Sprite projectileSprite;
     public GameObject deflectionShield;
     public GameObject shieldReadyIndicator;
+    public Slider shieldSlider;
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private GameObject tmpProjectile;
     private void Awake()
     {
+        shieldSlider.gameObject.SetActive(false);
         rigidBody = GetComponent<Rigidbody2D>();
         deflectionShield.SetActive(false);
     }
@@ -46,6 +49,11 @@ public class PlayerController : MonoBehaviour
         if (isFiring && !justFired)
         {
             StartCoroutine(FireProjectile());
+        }
+
+        if (shieldOnCooldown)
+        {
+            shieldSlider.value += Time.deltaTime;
         }
     }
 
@@ -95,8 +103,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ShieldCooldown()
     {
+        shieldSlider.gameObject.SetActive(true);
+        shieldSlider.maxValue = shieldCooldownTime;
+        shieldSlider.value = 0;
+
         yield return new WaitForSeconds(shieldCooldownTime);
         shieldOnCooldown = false;
+        shieldSlider.gameObject.SetActive(false);
         shieldReadyIndicator.SetActive(true);
     }
 
