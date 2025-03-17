@@ -7,9 +7,13 @@ public class EnemyBehavior : MonoBehaviour
     private float movementStartDelay = 3.0f;
     private float timer;
     private bool isMovementDisabled;
+    public bool isStaticEnemy;
     void Awake()
     {
-        movementBehavior = GetComponent<IMovement>();
+        if (!isMovementDisabled)
+        {
+            movementBehavior = GetComponent<IMovement>();
+        }
     }
 
     void OnEnable()
@@ -24,7 +28,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isMovementDisabled && timer > movementStartDelay)
+        if (!isStaticEnemy && !isMovementDisabled && timer > movementStartDelay)
         {
             movementBehavior.Move();
         }

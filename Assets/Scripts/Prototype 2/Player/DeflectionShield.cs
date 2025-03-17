@@ -13,6 +13,13 @@ public class DeflectionShield : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Deflectable>(out Deflectable deflectable))
         {
             tmpProjectile = Instantiate(deflectedProjectilePrefab, collision.transform.position, Quaternion.identity);
+            
+            if (tmpProjectile.TryGetComponent<DeflectedProjectile>(out DeflectedProjectile deflectedProjectile))
+            {
+                deflectedProjectile.collisionDamage.brickDmgAmount *= deflectable.deflectionDamageMultiplier;
+                deflectedProjectile.collisionDamage.enemyDmgAmount *= deflectable.deflectionDamageMultiplier;
+                deflectedProjectile.ScaleUpEnergyOrbSize(deflectable.deflectionSizeMultiplier);
+            }
         }
     }
 }

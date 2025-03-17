@@ -1,6 +1,6 @@
 Background: https://wall.alphacoders.com/big.php?i=885542
 
-Damage (Crunch) Sound: https://pixabay.com/users/freesound_community-46691455/
+Sound Assets: https://pixabay.com/users/freesound_community
 
 Main Ship Sprite made by Broah
 
@@ -8,4 +8,4 @@ Breakout Tile Set: https://jamiecross.itch.io/breakout-brick-breaker-game-tile-s
 
 Monster & Ship Sprites: https://larzes.itch.io/2d-space-shooter-sprites
 
-Main Level Theme: https://opengameart.org/content/finalboss-battle-1
+All Level Music made by nene: https://opengameart.org/users/nene

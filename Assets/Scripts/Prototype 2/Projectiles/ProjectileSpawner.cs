@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ProjectileSpawner : MonoBehaviour
@@ -14,6 +15,7 @@ public class ProjectileSpawner : MonoBehaviour
     private float firingRate = 1.0f;
     [SerializeField] 
     private float speed = 1.0f;
+    private bool isInitialFire;
 
     [SerializeField]
     private Sprite sprite;
@@ -22,13 +24,14 @@ public class ProjectileSpawner : MonoBehaviour
 
     private void Start()
     {
-        Invoke("Fire", firingStartDelay);
+        isInitialFire = true;
+        StartCoroutine(DelayCoroutine());
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= firingRate)
+        if (timer >= firingRate && !isInitialFire)
         {
             Fire();
             timer = 0;
@@ -41,8 +44,14 @@ public class ProjectileSpawner : MonoBehaviour
         {
             Vector3 offset = new Vector3(spawnCoordinateOffset.x, spawnCoordinateOffset.y, 0f);
             spawnedProjectile = Instantiate(projectilePrefab, transform.position + offset, Quaternion.Euler(0, 0, spawnRotationDegreesOffset));
-            spawnedProjectile.GetComponent<EnemyProjectile>().SetProjectileSpeed(speed);
-            spawnedProjectile.GetComponent<EnemyProjectile>().SetProjectileSprite(sprite);
+            spawnedProjectile.GetComponent<IProjectile>().SetProjectileSpeed(speed);
+            spawnedProjectile.GetComponent<IProjectile>().SetProjectileSprite(sprite);
         }
+    }
+
+    IEnumerator DelayCoroutine()
+    {
+        yield return new WaitForSeconds(firingStartDelay);
+        isInitialFire = false;
     }
 }

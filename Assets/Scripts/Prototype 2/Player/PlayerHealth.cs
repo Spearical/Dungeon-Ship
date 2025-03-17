@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     private float maxHealth = 100f;
+    [SerializeField]
     private float currentHealth;
     private GameManager gameManager;
 

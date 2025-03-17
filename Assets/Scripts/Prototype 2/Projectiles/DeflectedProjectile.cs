@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class DeflectedProjectile : MonoBehaviour
 {
+    public UnityEvent onSpawn;
     public UnityEvent onHitByPlayer;
     public UnityEvent onHitByBrick;
     public UnityEvent onHitByMissile;
@@ -14,18 +15,18 @@ public class DeflectedProjectile : MonoBehaviour
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float speed = 500.0f;
-    private const float MAX_TIME_ALIVE = 30.0f;
+    private const float MAX_TIME_ALIVE = 15.0f;
     [SerializeField]
     private float aliveTimer;
     [SerializeField]
     private int currentHitsForDamageBoost = 0;
     private const float BOUNCE_BOOST_BUFFER_TIME = 1.0f;
-    private const float EXPIRE_INDICATOR_THRESHOLD = 5.0f;
+    private const float EXPIRE_INDICATOR_THRESHOLD = 3.0f;
     [SerializeField]
     private bool canRebounce;
     [SerializeField]
     private bool expireSignaled;
-    private CollisionDamage collisionDamage;
+    public CollisionDamage collisionDamage;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class DeflectedProjectile : MonoBehaviour
 
     private void Start()
     {
+        onSpawn.Invoke();
         aliveTimer = 0;
         canRebounce = false;
         expireSignaled = false;
@@ -59,6 +61,11 @@ public class DeflectedProjectile : MonoBehaviour
         }
     }
 
+    public void ScaleUpEnergyOrbSize(float scaleMultiplier)
+    {
+        transform.localScale = new Vector3(1 * scaleMultiplier, 1 * scaleMultiplier, 1 * scaleMultiplier);
+    }
+
     private void RebounceBufferTimer()
     {
         if (!canRebounce)
@@ -73,7 +80,7 @@ public class DeflectedProjectile : MonoBehaviour
         canRebounce = true;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         DecreaseBouncesOnBrickContact(collision.gameObject);
 
