@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerDamageController : MonoBehaviour, IDamageable, IHealable
 {
     public bool isInvincible = false;
+    private bool isDying;
     private IHealth health;
     private InvincibilityController invincibilityController;
     private PlayerController playerController;
@@ -28,13 +29,14 @@ public class PlayerDamageController : MonoBehaviour, IDamageable, IHealable
 
     private void Start()
     {
+        isDying = false;
         healthSlider.maxValue = health.GetMaxHealth();
         healthSlider.value = health.GetCurrentHealth();
     }
 
     public void DealDamage(float damageAmount)
     {
-        if (!isInvincible && !playerController.IsShieldActive())
+        if (!isInvincible && !playerController.IsShieldActive() && !isDying)
         {
             onDamageTaken.Invoke();
             health.ChangeHealth(damageAmount);
@@ -44,8 +46,9 @@ public class PlayerDamageController : MonoBehaviour, IDamageable, IHealable
     }
     private void CheckIfPlayerHasZeroHealth()
     {
-        if (health.GetCurrentHealth() <= 0)
+        if (health.GetCurrentHealth() <= 0 && !isDying)
         {
+            isDying = true;
             onHealthZero.Invoke();
         }
         else

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898770881287946882}
   - component: {fileID: 8265472377779939200}
+  - component: {fileID: 6462473674057232706}
   - component: {fileID: -7843441544162766850}
   - component: {fileID: 1300509452414193430}
   - component: {fileID: 1986931649243236187}
@@ -18,6 +19,7 @@ GameObject:
   - component: {fileID: 7099388220115726828}
   - component: {fileID: 3233773439226126900}
   - component: {fileID: 6228748762750917781}
+  - component: {fileID: 2923036501920848029}
   m_Layer: 12
   m_Name: Deflected Energy
   m_TagString: Untagged
@@ -97,6 +99,102 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &6462473674057232706
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712947917662387925}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!58 &-7843441544162766850
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,6 +269,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6a72fdf372e2e46985e39ad8725d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2923036501920848029}
+        m_TargetAssemblyTypeName: DeflectedEnergySFX, Assembly-CSharp
+        m_MethodName: PlayDeflectedSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHitByPlayer:
     m_PersistentCalls:
       m_Calls:
@@ -228,13 +341,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onAboutToExpire:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3233773439226126900}
+        m_TargetAssemblyTypeName: DeflectedProjectileVisual, Assembly-CSharp
+        m_MethodName: ExpireTimeFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   maxHitsForDamageBoost: 3
   hitsAgainstBrickDamageBoost: 10
   hitsAgainstEnemyDamageBoost: 5
   speed: 500
-  aliveTimer: 30
+  aliveTimer: 0
   currentHitsForDamageBoost: 0
   canRebounce: 0
+  expireSignaled: 0
+  collisionDamage: {fileID: 0}
 --- !u!114 &2352732013278581919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,9 +450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b7ba731a8e590488689ed38d0c779a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashDuration: 3
-  flashColor: {r: 1, g: 1, b: 1, a: 0.5176471}
-  numberOfFlashes: 10
+  flashDuration: 15
+  flashColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  numberOfFlashes: 30
 --- !u!114 &6228748762750917781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +466,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceText: {fileID: 3847272931792439248}
+--- !u!114 &2923036501920848029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712947917662387925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c1f9b728d76a34e8e2cbcf454261da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6462473674057232706}
+  deflectedSFX: {fileID: 8300000, guid: b4e48c2c2e42a244ebfb9e694f0f4358, type: 3}
 --- !u!1 &3508877586912426131
 GameObject:
   m_ObjectHideFlags: 0

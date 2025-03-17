@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 public class DeflectedProjectile : MonoBehaviour
 {
+    public UnityEvent onSpawn;
     public UnityEvent onHitByPlayer;
     public UnityEvent onHitByBrick;
     public UnityEvent onHitByMissile;
@@ -14,13 +15,13 @@ public class DeflectedProjectile : MonoBehaviour
     private Rigidbody2D rigidBody;
     [SerializeField]
     private float speed = 500.0f;
-    private const float MAX_TIME_ALIVE = 30.0f;
+    private const float MAX_TIME_ALIVE = 15.0f;
     [SerializeField]
     private float aliveTimer;
     [SerializeField]
     private int currentHitsForDamageBoost = 0;
     private const float BOUNCE_BOOST_BUFFER_TIME = 1.0f;
-    private const float EXPIRE_INDICATOR_THRESHOLD = 5.0f;
+    private const float EXPIRE_INDICATOR_THRESHOLD = 3.0f;
     [SerializeField]
     private bool canRebounce;
     [SerializeField]
@@ -35,6 +36,7 @@ public class DeflectedProjectile : MonoBehaviour
 
     private void Start()
     {
+        onSpawn.Invoke();
         aliveTimer = 0;
         canRebounce = false;
         expireSignaled = false;

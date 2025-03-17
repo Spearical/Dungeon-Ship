@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,7 +7,10 @@ public enum GameState { Playing, GameOver, Victory }
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject bossManagerObject;
+    private GameObject bossManagerObject;
+    [SerializeField]
+    private GameObject musicManagerObject;
+    private AudioSource musicManagerAudioSource;
     [SerializeField]
     private bool levelHasBoss;
     private BossManager bossManager;
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
             bossManager = bossManagerObject.GetComponent<BossManager>();
         }
 
+        musicManagerAudioSource = musicManagerObject.GetComponent<AudioSource>();
+        
         SetUpAllBrickInstances();
         SetUpPlayerInstance();
         SetUpAllEnemyPortalInstances();
@@ -123,7 +129,7 @@ public class GameManager : MonoBehaviour
         gameState = state;
         if (gameState == GameState.GameOver)
         {
-            SetGameOverState();
+            StartCoroutine(GameOverCoroutine());
         }
         else if (gameState == GameState.Victory)
         {
@@ -157,8 +163,17 @@ public class GameManager : MonoBehaviour
     {
         isTimerStopped = true;
         onGameOver.Invoke();
-        player.SetActive(false);
         scoreText.text = "Score: " + score;
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        musicManagerAudioSource.Stop();
+        Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 1f;
+        SetGameOverState();
+        yield return null;
     }
 
     private void SetUpAllBrickInstances()
